@@ -48,4 +48,12 @@ abstract class Fields extends Api
      * @param array $field The updated field data
      */
     abstract public function updateField(string $collectionId, string $fieldId, array $field): ?array;
+
+    /**
+     * Delete a custom field in a collection. This endpoint does not currently support bulk deletion.
+     *
+     * @param string $collectionId Unique identifier for a Collection
+     * @param string $fieldId Unique identifier for a Field in a collection
+     */
+    abstract public function deleteField(string $collectionId, string $fieldId): ?array;
 }
