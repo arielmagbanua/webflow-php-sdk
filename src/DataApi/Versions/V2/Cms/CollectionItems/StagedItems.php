@@ -7,7 +7,7 @@ namespace ArielMagbanua\PhpWebflowApi\DataApi\Versions\V2\Cms\CollectionItems;
 use ArielMagbanua\PhpWebflowApi\DataApi\Cms\CollectionItems\Contracts\StagedItems as StagedItemsContract;
 
 /**
- * The Staged Collection class for the Webflow API
+ * The Staged Collection class for the Webflow API.
  *
  * @package ArielMagbanua\PhpWebflowApi\DataApi\Versions\V2\CollectionItems
  * @todo create unit tests for this class
@@ -36,9 +36,9 @@ class StagedItems extends StagedItemsContract
      * @param int|null $limit The limit
      * @param string|null $name The name
      * @param string|null $slug The slug
-     * @param array|null $createdOn The created on
-     * @param array|null $lastPublished The last published
-     * @param array|null $lastUpdated The last updated
+     * @param array<string, string>|null $createdOn The created on
+     * @param array<string, string>|null $lastPublished The last published
+     * @param array<string, string>|null $lastUpdated The last updated
      * @param string|null $sortBy The sort by
      * @param string|null $sortOrder The sort order
      */
@@ -134,7 +134,7 @@ class StagedItems extends StagedItemsContract
      *
      * @link https://developers.webflow.com/data/v2.0.0/reference/cms/collection-items/staged-items/create-items
      *
-     * @param array $items The items to create
+     * @param array<array<string, mixed>> $items The items to create
      * @param bool|null $skipInvalidFiles Whether to skip invalid files
      */
     public function createItems(array $items, ?bool $skipInvalidFiles = null): ?array
@@ -163,7 +163,7 @@ class StagedItems extends StagedItemsContract
      *
      * @link https://developers.webflow.com/data/v2.0.0/reference/cms/collection-items/staged-items/update-items
      *
-     * @param array $items The items to update
+     * @param array<array<string, mixed>> $items The items to update
      * @param bool|null $skipInvalidFiles Whether to skip invalid files
      */
     public function updateItems(array $items, ?bool $skipInvalidFiles = null): ?array
@@ -201,7 +201,7 @@ class StagedItems extends StagedItemsContract
      *      ]
      * ]
      * ```
-     * @param array $items The items to delete
+     * @param array<array<string, mixed>> $items The items to delete
      */
     public function deleteItems(array $items): ?array
     {
@@ -227,7 +227,7 @@ class StagedItems extends StagedItemsContract
      * ```php
      * $ids = ['580e64008c9a982ac9b8b754', '580e64008c9a982ac9b8b755'];
      * ```
-     * @param array $ids The IDs of the items to publish
+     * @param array<string> $ids The IDs of the items to publish
      */
     public function publishItemIds(array $ids): ?array
     {

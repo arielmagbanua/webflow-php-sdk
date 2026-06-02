@@ -18,6 +18,7 @@ class AccessToken
      *
      * @param string $accessToken The access token
      * @param string|null $tokenType The token type
+     * @param array<string> $scopes The OAuth scopes
      */
     public function __construct(
         protected string $accessToken,

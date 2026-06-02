@@ -21,9 +21,9 @@ abstract class StagedItems extends Items
      * @param int|null $limit The limit
      * @param string|null $name The name
      * @param string|null $slug The slug
-     * @param array|null $createdOn The created on
-     * @param array|null $lastPublished The last published
-     * @param array|null $lastUpdated The last updated
+     * @param array<string, string>|null $createdOn The created on
+     * @param array<string, string>|null $lastPublished The last published
+     * @param array<string, string>|null $lastUpdated The last updated
      * @param string|null $sortBy The sort by
      * @param string|null $sortOrder The sort order
      */
@@ -59,7 +59,7 @@ abstract class StagedItems extends Items
     /**
      * Create an item or multiple items in a CMS Collection across multiple corresponding locales.
      *
-     * @param array $items The items to create
+     * @param array<array<string, mixed>> $items The items to create
      * @param bool|null $skipInvalidFiles Whether to skip invalid files
      */
     abstract public function createItems(array $items, ?bool $skipInvalidFiles = null): ?array;
@@ -67,7 +67,7 @@ abstract class StagedItems extends Items
     /**
      * Update a single item or multiple items in a Collection.
      *
-     * @param array $items The items to update
+     * @param array<array<string, mixed>> $items The items to update
      * @param bool|null $skipInvalidFiles Whether to skip invalid files
      */
     abstract public function updateItems(array $items, ?bool $skipInvalidFiles = null): ?array;
@@ -75,14 +75,14 @@ abstract class StagedItems extends Items
     /**
      * Delete Items from a Collection.
      *
-     * @param array $ids The IDs of the staged items to delete
+     * @param array<array<string, mixed>> $items The IDs of the staged items to delete
      */
-    abstract public function deleteItems(array $ids): ?array;
+    abstract public function deleteItems(array $items): ?array;
 
     /**
      * Publish an item or multiple items.
      *
-     * @param array $ids The IDs of the staged items to publish
+     * @param array<string> $ids The IDs of the staged items to publish
      */
     abstract public function publishItemIds(array $ids): ?array;
 }

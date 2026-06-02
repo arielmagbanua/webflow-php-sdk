@@ -9,8 +9,7 @@ use ArielMagbanua\PhpWebflowApi\BaseApi;
 /**
  * The Base Data API class for the Webflow API
  *
- * @package ArielMagbanua\PhpWebflowApi
- * @author Ariel Magbanua <ariel@arielmagbanua.com>
+ * @package ArielMagbanua\PhpWebflowApi\DataApi
  */
 abstract class Api extends BaseApi
 {
