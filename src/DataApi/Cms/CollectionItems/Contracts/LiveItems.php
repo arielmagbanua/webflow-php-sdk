@@ -80,7 +80,7 @@ abstract class LiveItems extends Items
     /**
      * Unpublish up to 100 items from the live site and set the isDraft property to true.
      *
-     * @param array<string> $ids The IDs of the live items to unpublish
+     * @param array<array<string, mixed>> $items The IDs of the live items to unpublish
      */
-    abstract public function unpublishItems(array $ids): ?array;
+    abstract public function unpublishItems(array $items): ?array;
 }

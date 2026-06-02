@@ -7,7 +7,7 @@ namespace ArielMagbanua\PhpWebflowApi;
 use GuzzleHttp\Client;
 
 /**
- * The API class for the Webflow API
+ * The API class for the Webflow API.
  *
  * @package ArielMagbanua\PhpWebflowApi
  */
