@@ -26,9 +26,9 @@ abstract class LiveItems extends Items
      * @param int|null $limit The limit
      * @param string|null $name The name
      * @param string|null $slug The slug
-     * @param array|null $createdOn The created on
-     * @param array|null $lastPublished The last published
-     * @param array|null $lastUpdated The last updated
+     * @param array<string, string>|null $createdOn The created on
+     * @param array<string, string>|null $lastPublished The last published
+     * @param array<string, string>|null $lastUpdated The last updated
      * @param string|null $sortBy The sort by
      * @param string|null $sortOrder The sort order
      */
@@ -64,7 +64,7 @@ abstract class LiveItems extends Items
     /**
      * Create item(s) in a collection that will be immediately published to the live site.
      *
-     * @param array $items The items to create
+     * @param array<array<string, mixed>> $items The items to create
      * @param bool|null $skipInvalidFiles Whether to skip invalid files
      */
     abstract public function createItems(array $items, ?bool $skipInvalidFiles = null): ?array;
@@ -72,7 +72,7 @@ abstract class LiveItems extends Items
     /**
      * Update a single published item or multiple published items (up to 100) in a Collection.
      *
-     * @param array $items The items to update
+     * @param array<array<string, mixed>> $items The items to update
      * @param bool|null $skipInvalidFiles Whether to skip invalid files
      */
     abstract public function updateItems(array $items, ?bool $skipInvalidFiles = null): ?array;
@@ -80,7 +80,7 @@ abstract class LiveItems extends Items
     /**
      * Unpublish up to 100 items from the live site and set the isDraft property to true.
      *
-     * @param array $ids The IDs of the live items to unpublish
+     * @param array<string> $ids The IDs of the live items to unpublish
      */
     abstract public function unpublishItems(array $ids): ?array;
 }

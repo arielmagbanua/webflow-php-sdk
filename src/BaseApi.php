@@ -30,7 +30,7 @@ abstract class BaseApi
     /**
      * The headers for the API requests
      *
-     * @var array
+     * @var array<string, mixed>|null
      */
     protected ?array $headers = [
         'Content-Type' => 'application/json',
@@ -38,7 +38,7 @@ abstract class BaseApi
     ];
 
     /**
-     * The API constructor
+     * The BaseApi constructor
      */
     public function __construct()
     {
@@ -54,10 +54,24 @@ abstract class BaseApi
      *
      * @param Client $httpClient The HTTP client
      */
-    public function setHttpClient(Client $httpClient): void
+    public function setHttpClient(Client $httpClient): self
     {
         // set the HTTP client
         $this->httpClient = $httpClient;
+
+        return $this;
+    }
+
+    /**
+     * Set the API base URL
+     *
+     * @param string $apiBaseUrl The API base URL
+     */
+    public function setApiBaseUrl(string $apiBaseUrl): self
+    {
+        $this->apiBaseUrl = $apiBaseUrl;
+
+        return $this;
     }
 
     /**
@@ -65,7 +79,7 @@ abstract class BaseApi
      *
      * @param string $method The HTTP method
      * @param string $uri The URI
-     * @param array|null $body The body
+     * @param array<string, mixed>|null $body The body
      */
     protected function sendRequest(string $method, string $uri, ?array $body = null): ?array
     {

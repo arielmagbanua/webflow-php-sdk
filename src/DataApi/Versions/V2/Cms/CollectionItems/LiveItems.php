@@ -36,9 +36,9 @@ class LiveItems extends LiveItemsContract
      * @param int|null $limit The limit
      * @param string|null $name The name
      * @param string|null $slug The slug
-     * @param array|null $createdOn The created on
-     * @param array|null $lastPublished The last published
-     * @param array|null $lastUpdated The last updated
+     * @param array<string, string>|null $createdOn The created on
+     * @param array<string, string>|null $lastPublished The last published
+     * @param array<string, string>|null $lastUpdated The last updated
      * @param string|null $sortBy The sort by
      * @param string|null $sortOrder The sort order
      */
@@ -134,7 +134,7 @@ class LiveItems extends LiveItemsContract
      *
      * @link https://developers.webflow.com/data/v2.0.0/reference/cms/collection-items/live-items/create-item-live
      *
-     * @param array $items The items to create
+     * @param array<array<string, mixed>> $items The items to create
      * @param bool|null $skipInvalidFiles Whether to skip invalid files
      */
     public function createItems(array $items, ?bool $skipInvalidFiles = null): ?array
@@ -163,7 +163,7 @@ class LiveItems extends LiveItemsContract
      *
      * @link https://developers.webflow.com/data/v2.0.0/reference/cms/collection-items/live-items/update-items-live
      *
-     * @param array $items The items to update
+     * @param array<array<string, mixed>> $items The items to update
      * @param bool|null $skipInvalidFiles Whether to skip invalid files
      */
     public function updateItems(array $items, ?bool $skipInvalidFiles = null): ?array
@@ -201,7 +201,7 @@ class LiveItems extends LiveItemsContract
      *      ]
      * ]
      * ```
-     * @param array $items The items to unpublish
+     * @param array<array<string, mixed>> $items The items to unpublish
      */
     public function unpublishItems(array $items): ?array
     {

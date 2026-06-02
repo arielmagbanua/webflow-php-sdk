@@ -45,7 +45,7 @@ abstract class Fields extends Api
      *
      * @param string $collectionId Unique identifier for a Collection
      * @param string $fieldId Unique identifier for a Field in a collection
-     * @param array $field The updated field data
+     * @param array<string, mixed> $field The updated field data
      */
     abstract public function updateField(string $collectionId, string $fieldId, array $field): ?array;
 

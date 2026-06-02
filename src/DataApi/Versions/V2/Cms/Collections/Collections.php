@@ -63,7 +63,7 @@ class Collections extends CollectionsContract
      * @param string $displayName Name of the collection. Each collection name must be distinct
      * @param string $singularName Singular name of each item.
      * @param string $slug Part of a URL that identifier
-     * @param array $fields An array of custom fields to add to the collection
+     * @param array<string, mixed> $fields An array of custom fields to add to the collection
      */
     public function createCollection(string $siteId, string $displayName, string $singularName, string $slug, array $fields): ?array
     {

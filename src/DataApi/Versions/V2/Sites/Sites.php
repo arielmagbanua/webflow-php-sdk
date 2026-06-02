@@ -74,7 +74,7 @@ class Sites extends SitesContract
      * @link https://developers.webflow.com/data/v2.0.0/reference/sites/publish
      *
      * @param string $siteId The site ID
-     * @param array $customDomains The custom domains to publish
+     * @param array<string> $customDomains The custom domains to publish
      * @param string|null $pageId The page ID to publish
      * @param bool $publishToWebflowSubdomain Whether to publish to the Webflow subdomain
      */

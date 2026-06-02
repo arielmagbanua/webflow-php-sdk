@@ -61,7 +61,7 @@ class Fields extends CollectionFields
      * Delete a custom field in a collection. This endpoint does not currently support bulk deletion.
      *
      * @link https://developers.webflow.com/data/v2.0.0/reference/cms/collection-fields/delete
-     * 
+     *
      * @param string $collectionId Unique identifier for a Collection
      * @param string $fieldId Unique identifier for a Field in a collection
      */

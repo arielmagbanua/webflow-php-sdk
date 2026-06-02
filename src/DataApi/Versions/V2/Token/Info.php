@@ -24,7 +24,7 @@ class Info extends Api
     }
 
     /**
-     * Information about the Authorized User.
+     * Information about the Authorized User
      *
      * @link https://developers.webflow.com/data/v2.0.0/reference/token/authorized-by
      */
@@ -37,7 +37,7 @@ class Info extends Api
     }
 
     /**
-     * Information about the authorization token.
+     * Information about the authorization token
      *
      * @link https://developers.webflow.com/data/v2.0.0/reference/token/introspect
      */
