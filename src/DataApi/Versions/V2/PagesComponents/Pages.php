@@ -36,14 +36,27 @@ class Pages extends PagesContract
      */
     public function listPages(string $siteId, ?string $localeId = null, ?int $limit = null, ?int $offset = null): ?array
     {
+        $query = [];
+
+        // add the localeId to the query if it is not null
+        if ($localeId) {
+            $query['localeId'] = $localeId;
+        }
+
+        // add the limit to the query if it is not null
+        if ($limit) {
+            $query['limit'] = $limit;
+        }
+
+        // add the offset to the query if it is not null
+        if ($offset) {
+            $query['offset'] = $offset;
+        }
+
         return $this->sendRequest(
             method: 'GET',
             uri: 'sites/' . $siteId . '/pages',
-            query: [
-                'localeId' => $localeId,
-                'limit' => $limit,
-                'offset' => $offset,
-            ],
+            query: $query,
         );
     }
 }
