@@ -80,8 +80,9 @@ abstract class BaseApi
      * @param string $method The HTTP method
      * @param string $uri The URI
      * @param array<string, mixed>|null $body The body
+     * @param array<string, mixed>|null $query The query parameters
      */
-    protected function sendRequest(string $method, string $uri, ?array $body = null): ?array
+    protected function sendRequest(string $method, string $uri, ?array $body = null, ?array $query = null): ?array
     {
         if (!$this->httpClient) {
             return null; // no configured client
@@ -93,6 +94,10 @@ abstract class BaseApi
 
         if ($body) {
             $requestOptions['body'] = json_encode($body);
+        }
+
+        if ($query) {
+            $requestOptions['query'] = $query;
         }
 
         // send the request
