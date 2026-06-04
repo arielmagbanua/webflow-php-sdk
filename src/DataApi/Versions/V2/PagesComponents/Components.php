@@ -8,6 +8,9 @@ use ArielMagbanua\PhpWebflowApi\DataApi\PagesComponents\Contracts\Components as 
 
 /**
  * The Components class for the Webflow API
+ *
+ * @package ArielMagbanua\PhpWebflowApi\DataApi\Versions\V2\PagesComponents
+ * @todo Create a test for this class
  */
 class Components extends ComponentsContract
 {

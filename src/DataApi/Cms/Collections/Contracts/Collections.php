@@ -8,6 +8,8 @@ use ArielMagbanua\PhpWebflowApi\DataApi\Api;
 
 /**
  * The Collections contract for the Webflow API
+ *
+ * @package ArielMagbanua\PhpWebflowApi\DataApi\Cms\Collections\Contracts
  */
 abstract class Collections extends Api
 {

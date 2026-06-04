@@ -6,6 +6,11 @@ namespace ArielMagbanua\PhpWebflowApi\DataApi\PagesComponents\Contracts;
 
 use ArielMagbanua\PhpWebflowApi\DataApi\Api;
 
+/**
+ * The Components contract for the Webflow API
+ *
+ * @package ArielMagbanua\PhpWebflowApi\DataApi\PagesComponents\Contracts
+ */
 abstract class Components extends Api
 {
     /**
