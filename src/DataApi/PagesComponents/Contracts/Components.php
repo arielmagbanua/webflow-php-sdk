@@ -33,4 +33,25 @@ abstract class Components extends Api
      * @param integer|null $offset Offset used for pagination if the results have more than limit records
      */
     abstract public function listComponents(string $siteId, ?string $branchId = null, ?int $limit = null, ?int $offset = null): ?array;
+
+    /**
+     * Get static content from a component definition.
+     * This includes text nodes, image nodes, select nodes, text input nodes, submit button nodes, and nested component instances.
+     * To retrieve dynamic content set by component properties, use the get component properties endpoint.
+     *
+     * @param string $siteId Unique identifier for a Site
+     * @param string $componentId Unique identifier for a Component
+     * @param string|null $localeId Unique identifier for a specific Locale
+     * @param string|null $branchId Scope the operation to work on a specific branch
+     * @param integer|null $limit Maximum number of records to be returned (max limit: 100)
+     * @param integer|null $offset Offset used for pagination if the results have more than limit records
+     */
+    abstract public function getComponentContent(
+        string $siteId,
+        string $componentId,
+        ?string $localeId = null,
+        ?string $branchId = null,
+        ?int $limit = null,
+        ?int $offset = null
+    ): ?array;
 }

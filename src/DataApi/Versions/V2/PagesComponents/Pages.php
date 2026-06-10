@@ -59,4 +59,28 @@ class Pages extends PagesContract
             query: $query,
         );
     }
+
+    /**
+     * Get metadata information for a single page.
+     *
+     * @link https://developers.webflow.com/data/v2.0.0/reference/pages-and-components/pages/get-metadata
+     *
+     * @param string $pageId Unique identifier for a Page
+     * @param string|null $localeId Unique identifier for a specific Locale
+     */
+    public function getPageMetadata(string $pageId, ?string $localeId = null): ?array
+    {
+        $query = [];
+
+        // add the localeId to the query if it is not null
+        if ($localeId) {
+            $query['localeId'] = $localeId;
+        }
+
+        return $this->sendRequest(
+            method: 'GET',
+            uri: 'pages/' . $pageId,
+            query: $query,
+        );
+    }
 }
