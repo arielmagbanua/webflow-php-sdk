@@ -33,4 +33,12 @@ abstract class Pages extends Api
      * @param int|null $offset Offset used for pagination if the results have more than limit records
      */
     abstract public function listPages(string $siteId, ?string $localeId = null, ?int $limit = null, ?int $offset = null): ?array;
+
+    /**
+     * Get metadata information for a single page.
+     *
+     * @param string $pageId Unique identifier for a Page
+     * @param string|null $localeId Unique identifier for a specific Locale
+     */
+    abstract public function getPageMetadata(string $pageId, ?string $localeId = null): ?array;
 }
