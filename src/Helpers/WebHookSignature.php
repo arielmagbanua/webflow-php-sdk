@@ -31,6 +31,17 @@ class WebHookSignature
     }
 
     /**
+     * Set the secret key
+     *
+     * @param string|null $secret The secret key
+     */
+    public function setSecret(?string $secret): self
+    {
+        $this->secret = $secret;
+        return $this;
+    }
+
+    /**
      * Generate the HMAC-SHA256 signature for the given timestamp and payload.
      *
      * @param string $timestamp The x-webflow-timestamp header value (Unix timestamp in milliseconds)
