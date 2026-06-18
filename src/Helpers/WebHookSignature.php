@@ -31,6 +31,26 @@ class WebHookSignature
     }
 
     /**
+     * Generate the HMAC-SHA256 signature for the given timestamp and payload.
+     *
+     * @param string $timestamp The x-webflow-timestamp header value (Unix timestamp in milliseconds)
+     * @param string $payload The raw string request body
+     * @param string|null $secret Optional secret key to override the constructor-level secret
+     * @throws InvalidArgumentException if no secret key is provided
+     */
+    public function generate(string $timestamp, string $payload, ?string $secret = null): string
+    {
+        $signingKey = $secret ?? $this->secret;
+        if ($signingKey === null || $signingKey === '') {
+            throw new InvalidArgumentException('A secret key is required to generate the signature.');
+        }
+
+        $data = $timestamp . ':' . $payload;
+
+        return hash_hmac('sha256', $data, $signingKey);
+    }
+
+    /**
      * Verify the Webflow webhook request signature.
      *
      * @param string $signature The x-webflow-signature header value
@@ -47,14 +67,8 @@ class WebHookSignature
         ?string $secret = null,
         int $toleranceMs = 300000
     ): bool {
-        $signingKey = $secret ?? $this->secret;
-        if ($signingKey === null || $signingKey === '') {
-            throw new InvalidArgumentException('A secret key is required to verify the signature.');
-        }
-
         // 1. generate the HMAC hash
-        $data = $timestamp . ':' . $payload;
-        $expectedSignature = hash_hmac('sha256', $data, $signingKey);
+        $expectedSignature = $this->generate($timestamp, $payload, $secret);
 
         // 2. compare the generated hash with the provided signature
         if (!hash_equals($expectedSignature, $signature)) {

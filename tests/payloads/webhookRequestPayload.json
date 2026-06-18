@@ -1,0 +1,20 @@
+{
+  "triggerType": "form_submission",
+  "payload": {
+    "name": "job application form",
+    "siteId": "69f315ec8046ab8a4b0c68f5",
+    "data": {
+      "job-id": "aTKgKl1D-qkMSg3M",
+      "firstname": "Foo",
+      "addition": "additional",
+      "lastname": "Bar",
+      "email": "foo@gmail.com",
+      "phone": "+31 6 01234567",
+      "motivation": "I love AIs",
+      "cv": "https://cdn.prod.website-files.com/69f315ec8046ab8a4b0c68f5/6a326ec819c183db5bc7d3ad_aebaaf639bb1c9fa35.pdf",
+      "approve-contact": ["1"],
+      "know-from": "know-from",
+      "approve-store-details": ["1"]
+    }
+  }
+}
