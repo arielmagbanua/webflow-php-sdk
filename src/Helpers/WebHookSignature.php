@@ -23,6 +23,8 @@ class WebHookSignature
     private ?string $secret;
 
     /**
+     * The WebHookSignature constructor
+     *
      * @param string|null $secret The OAuth application client secret or Webhook secret key
      */
     public function __construct(?string $secret = null)
