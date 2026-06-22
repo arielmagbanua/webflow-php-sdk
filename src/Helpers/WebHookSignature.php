@@ -23,11 +23,24 @@ class WebHookSignature
     private ?string $secret;
 
     /**
+     * The WebHookSignature constructor
+     *
      * @param string|null $secret The OAuth application client secret or Webhook secret key
      */
     public function __construct(?string $secret = null)
     {
         $this->secret = $secret;
+    }
+
+    /**
+     * Set the secret key
+     *
+     * @param string|null $secret The secret key
+     */
+    public function setSecret(?string $secret): self
+    {
+        $this->secret = $secret;
+        return $this;
     }
 
     /**
