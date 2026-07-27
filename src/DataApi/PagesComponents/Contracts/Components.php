@@ -54,4 +54,21 @@ abstract class Components extends Api
         ?int $limit = null,
         ?int $offset = null
     ): ?array;
+
+    /**
+     * This endpoint updates content within a component defintion for secondary locales. It supports updating up to 1000 nodes in a single request.
+     *
+     * @param string $siteId Unique identifier for a Site
+     * @param string $componentId Unique identifier for a Component
+     * @param array $nodes The updated content
+     * @param string|null $localeId Unique identifier for a specific Locale
+     * @param string|null $branchId Scope the operation to work on a specific branch
+     */
+    abstract public function updateComponentContent(
+        string $siteId,
+        string $componentId,
+        array $nodes,
+        ?string $localeId = null,
+        ?string $branchId = null,
+    ): ?array;
 }

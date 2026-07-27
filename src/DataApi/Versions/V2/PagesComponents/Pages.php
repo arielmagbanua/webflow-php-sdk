@@ -83,4 +83,48 @@ class Pages extends PagesContract
             query: $query,
         );
     }
+
+    /**
+     * Update Page-level metadata, including SEO and Open Graph fields.
+     *
+     * @link https://developers.webflow.com/data/v2.0.0/reference/pages-and-components/pages/update-page-settings
+     *
+     * Example $metadata structure:
+     *
+     * ```php
+     * $metadata = [
+     *      'title' => 'Guide to the Galaxy',
+     *      'slug' => 'guide-to-the-galaxy',
+     *      'seo' => [
+     *          'title' => 'The Ultimate Hitchhiker\'s Guide to the Galaxy',
+     *          'description' => 'Everything you need to know about the galaxy, from avoiding Vogon poetry to the importance of towels.'
+     *      ],
+     *      'openGraph' => [
+     *          'title' => 'Explore the Cosmos with The Ultimate Guide',
+     *          'titleCopied' => false,
+     *          'description' => 'Dive deep into the mysteries of the universe with your guide to everything galactic.',
+     *          'descriptionCopied' => false
+     *      ]
+     * ];
+     *
+     * @param string $pageId Unique identifier for a Page
+     * @param array $metadata The updated metadata
+     * @param string|null $localeId Unique identifier for a specific Locale
+     */
+    public function updatePageMetadata(string $pageId, array $metadata, ?string $localeId = null): ?array
+    {
+        $query = [];
+
+        // add the localeId to the query if it is not null
+        if ($localeId) {
+            $query['localeId'] = $localeId;
+        }
+
+        return $this->sendRequest(
+            method: 'PUT',
+            uri: 'pages/' . $pageId,
+            body: $metadata,
+            query: $query,
+        );
+    }
 }

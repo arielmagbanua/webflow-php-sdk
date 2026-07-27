@@ -41,4 +41,13 @@ abstract class Pages extends Api
      * @param string|null $localeId Unique identifier for a specific Locale
      */
     abstract public function getPageMetadata(string $pageId, ?string $localeId = null): ?array;
+
+    /**
+     * Update Page-level metadata, including SEO and Open Graph fields.
+     *
+     * @param string $pageId Unique identifier for a Page
+     * @param array $metadata The updated metadata
+     * @param string|null $localeId Unique identifier for a specific Locale
+     */
+    abstract public function updatePageMetadata(string $pageId, array $metadata, ?string $localeId = null): ?array;
 }
